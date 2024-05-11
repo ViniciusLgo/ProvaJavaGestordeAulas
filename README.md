@@ -27,6 +27,8 @@ Este é um projeto Java para criar um sistema de gestão de aulas utilizando um 
 
 ## INSTRUÇÕES
 
+
+
 - **Projeto:** Siga as instruções do projeto para implementar os métodos requeridos sem modificar a estrutura fornecida.
 - **Código:** Utilize o código fornecido no projeto Contatos como referência. Este código é semelhante ao que você precisa e pode ser útil para construir os servlets, páginas JSP e rotinas AJAX.
 - **Pontuação:** A avaliação principal corresponde a 6,0 pontos, enquanto outras partes somam 4,0 pontos.
