@@ -17,7 +17,7 @@ reset = function() {
     body: new URLSearchParams(payload)
     }).then(() => {
 		atualizaSessao()
-		window.location.href = "/prova1"
+		window.location.href = "/ProvaJavaGestordeAulas"
 	}).catch(() => {
 		alert("Houve um erro ao resetar os dados")
 	})
@@ -30,7 +30,7 @@ novaAula = function() {
 
 // CANCELA NOVA AULA (OU EDIÇÃO)
 calcelarNovaAula = function() {
-	window.location.href = "/prova1";
+	window.location.href = "/ProvaJavaGestordeAulas";
 }
 
 // EDITA UMA AULA COM ID ESPECIFICADO
@@ -73,7 +73,7 @@ enviarNovaAula = function() {
     body: new URLSearchParams(payload)
     }).then(() => {
 		atualizaSessao()
-		window.location.href = "/prova1"
+		window.location.href = "/ProvaJavaGestordeAulas"
 	}).catch(() => {
 		alert("Houve um erro ao criar")
 	})
@@ -116,7 +116,7 @@ if (!validaNovaAula(data, horario, duracao, codDisciplina, assunto)) {
     body: new URLSearchParams(payload)
     }).then(() => {
 		atualizaSessao()
-		window.location.href = "/prova1"
+		window.location.href = "/ProvaJavaGestordeAulas"
 	}).catch(() => {
 		alert("Houve um erro ao editar")
 	})
@@ -138,7 +138,7 @@ deleta = function(id) {
     body: new URLSearchParams(payload)
     }).then(() => {
 		atualizaSessao();
-	    window.location.href = "/prova1";
+	    window.location.href = "/ProvaJavaGestordeAulas";
 	}).catch(() => {
 		alert("Houve um erro ao deletar")
 	})
@@ -149,7 +149,7 @@ deleta = function(id) {
 
 
 const voltarParaoIndex = function() {
-	 window.location.href = "/prova1";
+	 window.location.href = "/ProvaJavaGestordeAulas";
 }
 
 
@@ -172,11 +172,39 @@ const atualizaSessao = function() {
 // ============================================================
 // 			VALIDAÇÕES
 
+
+function validarHora(hora) {
+    // Expresión regular para validar el formato HH:MM
+    const regex = /^([01]\d|2[0-3]):([0-5]\d)$/;
+    return regex.test(hora);
+}
+
+function validarDuracao(duracao) {
+	const numero = parseInt(duracao);
+	
+	return !isNaN(numero) && Number.isInteger(numero);
+}
+
+function validarAssunto(assunto) {
+	
+	return assunto.trim().length > 0;
+}
+
+function validarDisciplina(codDisciplina) {
+	
+	return Number(codDisciplina) !== 0;
+}
+
+
 validaNovaAula = function(data, horario, duracao, codDisciplina, assunto) {
-  const existsValues = [data,horario,duracao, codDisciplina, assunto].every(value => !!value)
-  
-  
-    return existsValues;
+  const existsValues = [data,horario,duracao, codDisciplina, !!assunto.length].every(value => !!value)
+   
+    
+    return existsValues 
+    && validarHora(horario) 
+    && validarDuracao(duracao) 
+    && validarAssunto(assunto)
+    && validarDisciplina(codDisciplina);
 }
 
 
