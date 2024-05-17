@@ -17,7 +17,7 @@ import java.util.Random;
 import db.Db;
 import errors.ResourceNotFound;
 
- @WebServlet(urlPatterns = { "/prova1", "/nova", "/edit" })
+ @WebServlet(urlPatterns = { "/ProvaJavaGestordeAulas", "/nova", "/edit" })
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
