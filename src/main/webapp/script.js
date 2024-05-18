@@ -182,7 +182,7 @@ function validarHora(hora) {
 function validarDuracao(duracao) {
 	const numero = parseInt(duracao);
 	
-	return !isNaN(numero) && Number.isInteger(numero) && duracao > 0;
+	return !isNaN(numero) && Number.isInteger(numero) && duracao > 0 && duracao < 24;
 }
 
 function validarAssunto(assunto) {
